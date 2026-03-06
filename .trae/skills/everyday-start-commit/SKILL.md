@@ -1,5 +1,5 @@
 ---
-name: "smart-commit"
+name: "everyday-start-commit"
 description: "帮助用户分析当前项目的变更，并生成包含合适提交信息的 git commit 命令。当用户想要提交代码或生成 commit message 时调用。"
 ---
 
