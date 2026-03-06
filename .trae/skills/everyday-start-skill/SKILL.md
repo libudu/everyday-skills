@@ -1,5 +1,5 @@
 ---
-name: skill-generator
+name: everyday-start-skill
 description: 帮助用户创建、编写和配置新的 Skill。当用户想要添加新功能、自定义 AI 行为或提及“创建 skill”时调用。
 ---
 
