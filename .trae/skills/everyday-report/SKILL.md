@@ -14,7 +14,8 @@ description: "根据当天 Git 提交记录生成 AI 日报。当用户要求写
 1. **执行汇总命令**：
    在终端中运行以下命令，提取今天的 Git 提交记录到当前项目根目录：
    ```powershell
-   git log --since="midnight" --date=iso --pretty=format:"%ad | %s" > commits_today.txt
+   [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+   git log --since="midnight" --author="$(git config user.email)" --date=iso --pretty=format:"%ad | %s" | Out-File -Encoding utf8 commits_today.txt
    ```
    *注意：这会在项目根目录生成* *`commits_today.txt`* *文件。*
 2. **读取提交记录**：
