@@ -12,14 +12,13 @@ description: "根据当天 Git 提交记录生成 AI 日报。当用户要求写
 当用户触发此 Skill 时，你需要**严格按照以下顺序**执行操作：
 
 1. **执行汇总命令**：
-   在终端中运行以下命令，提取今天的 Git 提交记录到当前项目根目录：
+   在终端中运行以下命令，获取今天的 Git 提交记录：
    ```powershell
    [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-   git log --since="midnight" --author="$(git config user.email)" --date=iso --pretty=format:"%ad | %s" | Out-File -Encoding utf8 commits_today.txt
+   git --no-pager log --since="midnight" --author="$(git config user.email)" --date=iso --pretty=format:"%ad | %s%b%n"
    ```
-   *注意：这会在项目根目录生成* *`commits_today.txt`* *文件。*
-2. **读取提交记录**：
-   使用文件读取工具（Read），读取项目根目录下的 `commits_today.txt` 文件，分析今天的提交内容。
+2. **分析提交记录**：
+   从上述终端命令的控制台输出中获取并分析今天的提交内容。
 3. **生成并输出日报**：
    根据你读取到的提交内容，归纳总结并向用户输出一份日报。**必须严格遵守以下所有规则**：
    - **条数限制**：至少包含 3 条工作项。
@@ -32,4 +31,3 @@ description: "根据当天 Git 提交记录生成 AI 日报。当用户要求写
 - 修复了用户登录界面的数据校验 Bug。（估时：2小时）
 - 重构了首页的核心组件，优化了页面的加载性能。（估时：4小时）
 - 补充并更新了项目的 API 接口文档说明。（估时：2小时）
-
