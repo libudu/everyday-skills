@@ -2,61 +2,16 @@
 
 这是一个为 Trae IDE 编写的 Skill 集合，旨在通过自动化常见任务和提供特定领域的辅助功能，提升开发效率和体验。
 
-## 已有的 Skills
+<!-- SKILLS_TABLE_START -->
 
-本项目包含以下 Skill，你可以在 Trae 中直接调用它们：
+| Name                       | Description                                                                                                                                                  |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `everyday-ai-video`        | 专为 Seedance 2.0 模型设计的 AI 视频提示词生成助手。支持中文提示词编写，时长设定为 15 秒，包含角色声音描述，并能将模糊想法扩展为具体的小剧场或连续动作场景。 |
+| `everyday-figma2code`      | 根据 Figma 设计稿生成符合当前项目规范的前端代码。当用户要求实现 Figma 设计稿、生成 UI 或提供 Figma 节点链接时调用。                                          |
+| `everyday-porn-novel`      | 续写用户提交的色情小说，或根据模糊想法创作。当用户请求续写色情小说、提供相关内容或只有模糊想法时调用。                                                       |
+| `everyday-report`          | 根据当天 Git 提交记录生成 AI 日报。当用户要求写日报、汇总今日提交或写工作总结时调用。                                                                        |
+| `everyday-start-skill`     | 帮助用户创建、编写和配置新的 Skill。当用户想要添加新功能、自定义 AI 行为或提及“创建 skill”时调用。                                                           |
+| `everyday-text-emoji`      | 给用户输入的文本中插入大量 emoji，不修改原文本。当用户要求给文字插入 emoji 或类似请求时调用。                                                                |
+| `everyday-version-summary` | 读取项目最新Git Tag间的提交记录并生成版本日志。当用户要求总结版本更新、生成Release Notes或获取最新Tag更新日志时调用。                                        |
 
-### 1. Everyday Start Coding (`everyday-start-coding`)
-
-**描述**: 自动化日常代码同步流程。
-
-**功能**:
-- 自动 fetch 远程分支。
-- 智能检测并 stash 本地未提交的更改。
-- 自动 rebase 到目标分支（如 `origin/dev`, `origin/main`）。
-- Rebase 成功后自动 pop stash，恢复工作现场。
-
-**使用场景**: 当你开始一天的工作，或者想要同步最新代码时调用。
-
-### 2. Smart Commit (`everyday-start-commit`)
-
-**描述**: 智能分析代码变更并生成提交信息。
-
-**功能**:
-- 分析工作区的文件变更（`git status` 和 `git diff`）。
-- 自动生成符合 Conventional Commits 规范的 commit message。
-- 构建完整的 git commit 命令供用户执行。
-
-**使用场景**: 当你完成了一部分工作想要提交代码，或者不知道如何写 commit message 时调用。
-
-### 3. Skill Generator (`everyday-start-skill`)
-
-**描述**: 帮助用户快速创建和配置新的 Skill。
-
-**功能**:
-- 引导用户通过交互式问答定义新 Skill 的名称、功能和触发条件。
-- 自动在 `.trae/skills/` 目录下生成标准的 Skill 结构和 `SKILL.md` 文件。
-- 确保生成的 Skill 符合 Trae 的规范，便于立即使用。
-
-**使用场景**: 当你想要扩展 Trae 的能力，添加自定义功能或新 Skill 时调用。
-
-### 4. Porn Novel Assistant (`everyday-porn-novel`)
-
-**描述**: 专注于色情小说创作和续写的辅助工具。
-
-**功能**:
-- **想法孵化**: 将模糊的灵感转化为具体的创作蓝图。
-- **故事分析**: 深入分析现有小说内容，生成角色档案、情节梳理等文档。
-- **大纲制定**: 根据分析结果或用户要求，生成详细的分章大纲。
-- **正文续写**: 基于大纲和上下文，创作高质量的小说正文。
-
-**使用场景**: 当你需要创作、续写或分析色情小说内容时调用。
-
-## 如何使用
-
-在 Trae 的对话框中，你可以通过自然语言描述你的需求，Trae 会根据 skill 的描述自动选择合适的工具。例如：
-
-- "帮我同步一下代码" -> 触发 `everyday-start-coding`
-- "我要提交代码" -> 触发 `everyday-start-commit`
-- "创建一个新的 skill" -> 触发 `everyday-start-skill`
-- "续写这篇小说" -> 触发 `everyday-porn-novel`
+<!-- SKILLS_TABLE_END -->
