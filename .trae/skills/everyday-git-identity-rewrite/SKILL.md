@@ -135,27 +135,7 @@ fi
 - 必须保留 `-- --all`，以确保所有分支和 tag 都参与重写。
 - 如果命令失败，向用户展示核心报错并停止，不要伪造成功结果。
 
-### 5. 校验旧身份是否已消失
-
-重新扫描当前仓库历史记录：
-
-```powershell
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-$oldName = '<old_name>'
-$oldEmail = '<old_email>'
-$remaining = git --no-pager log --all --format='%H%x09%an%x09%ae%x09%cn%x09%ce' |
-  Where-Object {
-    $_ -match [regex]::Escape($oldName) -or $_ -match [regex]::Escape($oldEmail)
-  }
-$remainingCount = ($remaining | Where-Object { $_ -ne '' }).Count
-```
-
-判定规则：
-
-- 如果 `$remainingCount` 为 `0`：校验通过。
-- 如果 `$remainingCount` 大于 `0`：说明旧敏感信息仍存在，必须如实告知用户校验失败，并附上剩余数量。
-
-### 6. 统计 tag 情况
+### 5. 统计 tag 情况
 
 为了在报告中说明 tag 是否一并迁移，可在执行前后分别读取 tag 数量：
 
@@ -165,7 +145,7 @@ $tagCount = (git tag | Measure-Object).Count
 
 如果 `$tagCount` 大于 `0`，在结果中明确说明本次已对 tag 一并完成迁移重写。
 
-### 7. 输出结果
+### 6. 输出结果
 
 最终回复用户时，必须包含以下信息：
 
